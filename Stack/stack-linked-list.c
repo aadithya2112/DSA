@@ -30,19 +30,17 @@ void push(int value)
     top = newNode;
 }
 
-int pop()
+void pop()
 {
     if (top == NULL)
     {
         printf("Stack is empty\n");
-        return -1;
+        return;
     }
 
     struct Node *temp = top;
-    int value = temp->data;
     top = top->next;
     free(temp);
-    return value;
 }
 
 void display()
@@ -71,9 +69,10 @@ int main()
     push(5);
 
     display();
-
-    printf("Popped: %d\n", pop());
-    printf("Popped: %d\n", pop());
+    printf("After Popped: \n");
+    pop();
+    pop();
+    display();
 
     return 0;
 }

@@ -21,15 +21,15 @@ void push(int value)
     stack.data[++stack.top] = value;
 }
 
-int pop()
+void pop()
 {
     if (stack.top == -1)
     {
         printf("Stack is empty\n");
-        return -1;
+        return;
     }
 
-    return stack.data[stack.top--];
+    stack.top--;
 }
 
 void display()
@@ -59,8 +59,9 @@ int main()
 
     display();
 
-    printf("Popped: %d\n", pop());
-    printf("Popped: %d\n", pop());
+    printf("After Popped: \n");
+    pop();
+    pop();
 
     display();
 

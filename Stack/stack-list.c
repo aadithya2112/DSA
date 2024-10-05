@@ -2,55 +2,46 @@
 
 #define MAX_SIZE 100
 
-struct Stack
-{
-    int top;
-    int data[MAX_SIZE];
-};
-
-struct Stack stack;
+int top = -1;
+int data[MAX_SIZE];
 
 void push(int value)
 {
-    if (stack.top == MAX_SIZE - 1)
+    if (top == MAX_SIZE - 1)
     {
         printf("Stack is full\n");
         return;
     }
-
-    stack.data[++stack.top] = value;
+    data[++top] = value;
 }
 
 void pop()
 {
-    if (stack.top == -1)
+    if (top == -1)
     {
         printf("Stack is empty\n");
         return;
     }
-
-    stack.top--;
+    top--;
 }
 
 void display()
 {
-    if (stack.top == -1)
+    if (top == -1)
     {
         printf("Stack is empty\n");
         return;
     }
 
-    for (int i = stack.top; i >= 0; i--)
+    for (int i = top; i >= 0; i--)
     {
-        printf("%d ", stack.data[i]);
+        printf("%d ", data[i]);
     }
     printf("\n");
 }
 
 int main()
 {
-    stack.top = -1;
-
     push(1);
     push(2);
     push(3);
@@ -63,7 +54,7 @@ int main()
     pop();
     pop();
 
-    display();
+    display(); // Display stack contents again
 
     return 0;
 }
